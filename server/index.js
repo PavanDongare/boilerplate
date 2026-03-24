@@ -14,8 +14,8 @@ const data = new Array(20).fill(0).map((x,index)=>{ return {'name':'product '+in
 //'/api/products?page=2&&limit=2'
 app.get('/api/products',(req,res)=>{
     
-    const  page=  Number(req.query.page);
-    const  limit= Number(req.query.limit);
+    const  page=  Number(req.query.page)||1;
+    const  limit= Number(req.query.limit)||2;
     const totalPages = Math.ceil(data.length/limit)
 
     const startIndex = (page-1)*limit
